@@ -1,0 +1,11 @@
+{
+  "name": "studysolution_v_0",
+  "version": "1.0.0",
+  "description": "Cloning wetube with VanillaJS and Node",
+  "main": "index.js",
+  "author": "HanKang",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
