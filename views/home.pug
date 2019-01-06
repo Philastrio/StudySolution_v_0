@@ -1,4 +1,11 @@
 extends layouts/main
+include mixins/videoBlock
 
 block content
-	p Welcome StudySolution (스터디 솔루션)
+	.videos
+		each video in videos
+			+videoBlock({
+				title: video.title,
+				views: video.views,
+				videoFile: video.videoFile
+			})
