@@ -8,8 +8,11 @@
   "dependencies": {
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.3",
     "autoprefixer": "^9.4.5",
+    "babel-loader": "^8.0.5",
+    "bable-loader": "0.0.1-security",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "css-loader": "^2.1.0",
