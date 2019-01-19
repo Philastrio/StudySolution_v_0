@@ -4,10 +4,10 @@ import routes from "./routes";
 const multerVideo = multer({ dest: "uploads/videos/"});
 
 export const localsMiddlewares = (req, res, next) => {
-	res.locals.siteName = "UST(United Study Teacher)";
+	res.locals.siteName = "BlueSunTube";
 	res.locals.routes = routes;
 	res.locals.user = {
-		isAuthenticated: true,
+		isAuthenticated: false,
 		id: 1
 	};
 	next();

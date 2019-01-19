@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ESLintProjectComponent">
     <option name="eslintRcFile" value="" />
-    <option name="eslintExecutable" value="C:\Users\GANG&amp;AROM\WebstormProjects\HanKang\StudySolution_v_0\node_modules\.bin\eslint.cmd" />
+    <option name="eslintExecutable" value="C:\Users\GANG&amp;AROM\AppData\Roaming\npm\eslint.cmd" />
     <option name="nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <option name="pluginEnabled" value="true" />
   </component>
 </project>
