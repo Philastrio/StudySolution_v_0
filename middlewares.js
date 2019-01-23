@@ -1,16 +1,29 @@
 import multer from 'multer';
-import routes from "./routes";
+import routes from './routes';
 
-const multerVideo = multer({ dest: "uploads/videos/"});
+const multerVideo = multer({ dest: 'uploads/videos/' });
 
 export const localsMiddlewares = (req, res, next) => {
-	res.locals.siteName = "BlueSunTube";
+	res.locals.siteName = 'BlueSunTube';
 	res.locals.routes = routes;
-	res.locals.user = {
-		isAuthenticated: false,
-		id: 1
-	};
+	res.locals.user = req.user || null;
 	next();
+};
+
+export const onlyPrivate = (req, res, next) => {
+	if (req.user) {
+		next();
+	} else {
+		res.redirect(routes.home);
+	}
+};
+
+export const onlyPublic = (req, res, next) => {
+	if (req.user) {
+		res.redirect(routes.home);
+	} else {
+		next();
+	}
 };
 
 export const uploadVideo = multerVideo.single('videoFile');
