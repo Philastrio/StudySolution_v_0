@@ -1,22 +1,27 @@
 // Global
-const HOME = "/";
-const JOIN = "/join";
-const LOGIN = "/login";
-const LOGOUT = "/logout";
-const SEARCH = "/search";
+const HOME = '/';
+const JOIN = '/join';
+const LOGIN = '/login';
+const LOGOUT = '/logout';
+const SEARCH = '/search';
 
-//Users
-const USERS = "/users";
-const USER_DETAIL = "/:id";
-const EDIT_PROFILE = "/edit-profile";
-const CHANGE_PASSWORD = "/change-password";
+// Users
+const USERS = '/users';
+const USER_DETAIL = '/:id';
+const EDIT_PROFILE = '/edit-profile';
+const CHANGE_PASSWORD = '/change-password';
+const ME = '/me';
 
-//Videos
-const VIDEOS = "/videos";
-const UPLOAD = "/upload";
-const VIDEO_DETAIL = "/:id";
-const EDIT_VIDEO = "/:id/edit";
-const DELETE_VIDEO = "/:id/delete";
+// Videos
+const VIDEOS = '/videos';
+const UPLOAD = '/upload';
+const VIDEO_DETAIL = '/:id';
+const EDIT_VIDEO = '/:id/edit';
+const DELETE_VIDEO = '/:id/delete';
+
+// Github
+const GITHUB = '/auth/github';
+const GITHUB_CALLBACK = '/auth/github/callback';
 
 const routes = {
 	home: HOME,
@@ -26,7 +31,7 @@ const routes = {
 	search: SEARCH,
 	users: USERS,
 	usersDetail: (id) => {
-		if(id) {
+		if (id) {
 			return `/users/${id}`;
 		} else {
 			return USER_DETAIL;
@@ -44,7 +49,7 @@ const routes = {
 		}
 	},
 	editVideo: (id) => {
-		if(id) {
+		if (id) {
 			return `/videos/${id}/edit`;
 		} else {
 			return EDIT_VIDEO;
@@ -56,7 +61,10 @@ const routes = {
 		} else {
 			return DELETE_VIDEO;
 		}
-	}
+	},
+	github: GITHUB,
+	githubCallback: GITHUB_CALLBACK,
+	me: ME,
 };
 
 export default routes;
