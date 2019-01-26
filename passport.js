@@ -19,7 +19,7 @@ passport.use(
 passport.use(new FacebookStrategy({
   clientID: process.env.FB_ID,
   clientSecret: process.env.FB_SECRET,
-  callbackURL: `https://witty-insect-34.localtunnel.me/${routes.facebookCallback}`,
+  callbackURL: `https://breezy-cobra-21.localtunnel.me/${routes.facebookCallback}`,
   profileFields: ['id', 'displayName', 'photos', 'email'],
   scope: ['public_profile', 'email'],
   },
