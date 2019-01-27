@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const CommentSchema = new mongoose.Schema({
 	text: {
 		type: String,
-		required: "Text is required"
+		required: 'Text is required'
 	},
 	createdAT: {
 		type: Date,
@@ -11,10 +11,14 @@ const CommentSchema = new mongoose.Schema({
 	},
 	video: {
 		type: mongoose.Schema.Types.ObjectId,
-		ref: "Video"
+		ref: 'Video'
+	},
+	creator: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User'
 	}
 });
 
-const model = mongoose.model("Comment", CommentSchema);
+const model = mongoose.model('Comment', CommentSchema);
 
 export default model;

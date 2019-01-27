@@ -4,7 +4,8 @@ module.exports = {
         "linebreak-style": "off",
         "indent": "off",
         "no-tabs": "off",
-        "no-mixed-spaces-and-tabs": "off"
+        "no-mixed-spaces-and-tabs": "off",
+        "comma-dangle": "off",
+        "no-trailing-spaces": "off"
     }
-
 };
