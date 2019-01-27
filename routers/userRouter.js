@@ -1,5 +1,5 @@
 import express from 'express';
-import { onlyPrivate } from '../middlewares';
+import { onlyPrivate, uploadAvatar } from '../middlewares';
 import routes from '../routes';
 import {
 	changePassword,
@@ -15,7 +15,8 @@ const userRouter = express.Router();
 userRouter.get(routes.users, onlyPrivate, users);
 
 userRouter.get(routes.editProfile, onlyPrivate, getEditProfile);
-userRouter.get(routes.editProfile, onlyPrivate, postEditProfile);
+userRouter.post(routes.editProfile, onlyPrivate, uploadAvatar, postEditProfile);
+
 userRouter.get(routes.changePassword, changePassword);
 userRouter.get(routes.usersDetail(), userDetail);
 

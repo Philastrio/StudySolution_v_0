@@ -3,7 +3,8 @@ module.exports = {
     "rules": {
         "linebreak-style": "off",
         "indent": "off",
-        "no-tabs": "off"
+        "no-tabs": "off",
+        "no-mixed-spaces-and-tabs": "off"
     }
 
 };
