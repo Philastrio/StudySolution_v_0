@@ -50,8 +50,7 @@
         background-color: #3498db;
         color: white;
         padding: 15px;
-        border-radius: 20px;
-        border-bottom-left-radius: 0px;
+        border-radius: 20px 20px 20px 0;
         &:not(:last-child) {
           margin-bottom: 15px;
         }
