@@ -7,5 +7,8 @@ module.exports = {
         "no-mixed-spaces-and-tabs": "off",
         "comma-dangle": "off",
         "no-trailing-spaces": "off"
+    },
+    'env': {
+        'browser': true
     }
 };
