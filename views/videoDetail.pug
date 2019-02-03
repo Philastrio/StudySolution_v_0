@@ -8,14 +8,13 @@ block content
 			if loggedUser && video.creator.id === loggedUser.id
 				a(href=routes.editVideo(video.id))
 					button 영상 수정
-			h5.video__title=video.title
-			p.video__description=video.description
-				span.video__views 조회수: #{video.views}
+			h2.video__title=video.title
+			span.video__views 조회수: #{video.views}
 			.video__author
-				| Uploaded by
+				| 올린이:
 				|
 				a(href=routes.usersDetail(video.creator.id))=video.creator.name
-
+			p.video__description=video.description
 	.video-comments__container
 		.video__comments
 			|댓글

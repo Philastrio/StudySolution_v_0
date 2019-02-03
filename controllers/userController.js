@@ -93,25 +93,29 @@ export const logout = (req, res) => {
 
 export const users = (req, res) => res.render('users', { pageTitle: 'Users'});
 
-export const getMe = (req, res) => {
-	res.render('userDetail', { pageTitle: 'User Detail', user: req.user });
-};
-
 export const userDetail = async (req, res) => {
 	const {
 		params: { id },
 	} = req;
 	try {
 		const user = await User.findById(id).populate('videos');
-		console.log(user);
-		res.render('userDetail', { pageTitle: 'User Detail', user });
+		res.render('userDetail', { pageTitle: '프로필', user });
 	} catch (error) {
 		res.redirect(routes.home);
 	}
 };
 
+export const getMe = async (req, res) => {
+	try {
+		const user = await User.findById(req.user.id).populate('videos');
+		res.render('userDetail', { pageTitle: '나의 프로필', user });
+	} catch (error) {
+		res.redirect(routes.home);
+	}
+};
 
-export const getEditProfile = (req, res) => res.render('editProfile', { pageTitle: 'Edit Profile' });
+// getEditProfile
+export const getEditProfile = (req, res) => res.render('editProfile', { pageTitle: '프로필 수정' });
 
 export const postEditProfile = async (req, res) => {
 	const {
@@ -129,6 +133,9 @@ export const postEditProfile = async (req, res) => {
 		res.redirect(routes.editProfile);
 	}
 };
+
+// getEditVideo
+export const getEditVideo = (req, res) => res.render('editVideo', { pageTitle: '영상수정' });
 
 export const getChangePassword = (req, res) => res.render('changePassword', { pageTitle: 'Change Password'});
 

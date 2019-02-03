@@ -1,6 +1,6 @@
 import express from 'express';
 import passport from 'passport';
-import { onlyPrivate, onlyPublic } from "../middlewares";
+import { onlyPrivate, onlyPublic } from '../middlewares';
 import {
   postJoin,
   getJoin,
@@ -35,7 +35,7 @@ globalRouter.get(
   postGithubLogin,
 );
 
-globalRouter.get(routes.me, getMe);
+globalRouter.get(routes.me, onlyPrivate, getMe);
 
 globalRouter.get(routes.facebook, facebookLogin);
 globalRouter.get(
