@@ -3,16 +3,25 @@ const recordBtn = document.getElementById('jsRecordBtn');
 const videoPreview = document.getElementById('jsVideoPreview');
 
 let streamObject;
+let videoRecoder;
 
 const handleVideoData = (event) => {
   console.log(event.data);
 }
 
+const stopRecoding = () => {
+  videoRecoder.stop();
+  recordBtn.addEventListener('click', getVideo);
+};
+
 const startRecoding = () => {
   const videoRecorder = new MediaRecoder(streamObject);
   videoRecorder.start(1000);
   videoRecorder.addEventListener('dataavailable', handleVideoData);
+  recordBtn.addEventListener('click', stopRecoding);
 };
+
+
 
 const getVideo = async () => {
   try {
@@ -34,7 +43,7 @@ const getVideo = async () => {
 };
 
 function init() {
-  recordBtn.addEventListener('click', startRecoding);
+  recordBtn.addEventListener('click', getVideo);
 }
 
 if (recorderContainer) {

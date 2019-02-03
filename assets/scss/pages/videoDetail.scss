@@ -31,26 +31,34 @@
       font-size: 16px;
     }
   }
+}
+.video-comments__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .video__comments {
+    width: 400px;
+    font-size: 15px;
     margin-top: 25px;
-    text-align: center;
-    .video__comment-number {
-      font-size: 18px;
-    }
     .add__comment {
       margin-top: 25px;
+      margin-bottom: 25px;
       width: 100%;
       input {
         width: 100%;
+        max-width: 800px;
       }
     }
     .video__comments-list {
       margin-top: 50px;
+      align-content: center;
       li {
-        background-color: #3498db;
+        width: 100%;
+        max-width: 800px;
+        background-color: #477EFF;
         color: white;
         padding: 15px;
-        border-radius: 20px 20px 20px 0;
+        border-radius: 10px 10px 10px 10px;
         &:not(:last-child) {
           margin-bottom: 15px;
         }
