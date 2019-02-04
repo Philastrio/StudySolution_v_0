@@ -26,6 +26,7 @@ export const search = async (req, res) => {
 				$options: 'i'
 			}
 		});
+		console.log(videos);
 	} catch (error) {
 		console.log(error);
 	}

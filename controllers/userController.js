@@ -99,7 +99,7 @@ export const userDetail = async (req, res) => {
 	} = req;
 	try {
 		const user = await User.findById(id).populate('videos');
-		res.render('userDetail', { pageTitle: '프로필', user });
+		res.render('userDetail_normal', { pageTitle: '프로필', user });
 	} catch (error) {
 		res.redirect(routes.home);
 	}
@@ -108,7 +108,7 @@ export const userDetail = async (req, res) => {
 export const getMe = async (req, res) => {
 	try {
 		const user = await User.findById(req.user.id).populate('videos');
-		res.render('userDetail', { pageTitle: '나의 프로필', user });
+		res.render('userDetail_getMe', { pageTitle: '나의 프로필', user });
 	} catch (error) {
 		res.redirect(routes.home);
 	}
@@ -134,8 +134,6 @@ export const postEditProfile = async (req, res) => {
 	}
 };
 
-// getEditVideo
-export const getEditVideo = (req, res) => res.render('editVideo', { pageTitle: '영상수정' });
 
 export const getChangePassword = (req, res) => res.render('changePassword', { pageTitle: 'Change Password'});
 
