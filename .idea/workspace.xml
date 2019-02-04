@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3467e85-8c1b-48ac-8cd1-7b6fde5f1795" name="Default Changelist" comment="1차 목표 완성">
-      <change afterPath="$PROJECT_DIR$/assets/scss/pages/search.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/userDetail_normal.pug" afterDir="false" />
+    <list default="true" id="a3467e85-8c1b-48ac-8cd1-7b6fde5f1795" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/config/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/config/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/pages/userDetail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/pages/userDetail.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/partials/videoBlock.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/partials/videoBlock.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/partials/videoPlayer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/partials/videoPlayer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/videoController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/videoController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/main.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/main.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/search.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/search.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/userDetail.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/userDetail_getMe.pug" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -41,8 +29,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="612">
-                <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+              <first_editor relative-caret-position="756">
+                <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
               </first_editor>
               <second_editor />
             </state>
@@ -815,7 +803,7 @@
         <observation name="typedSelect" value="67.0" />
       </dailyData>
       <dailyData date="04-02-2019">
-        <observation name="cancelled" value="590.0" />
+        <observation name="cancelled" value="625.0" />
         <observation name="explicitSelect" value="30.0" />
         <observation name="typedSelect" value="85.0" />
       </dailyData>
@@ -881,7 +869,7 @@
         <observation name="count" value="528.0" />
       </dailyData>
       <dailyData date="04-02-2019">
-        <observation name="count" value="705.0" />
+        <observation name="count" value="740.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:explicitProximity">
@@ -2361,7 +2349,7 @@
       <workItem from="1548958034754" duration="7369000" />
       <workItem from="1548967457752" duration="28551000" />
       <workItem from="1549107585459" duration="8534000" />
-      <workItem from="1549168550582" duration="27583000" />
+      <workItem from="1549168550582" duration="27663000" />
     </task>
     <task id="LOCAL-00001" summary="Ready">
       <created>1546316263100</created>
@@ -2538,11 +2526,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549232941090</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="1차 완성&#10;React 공부 후 Version Up 계획중">
+      <created>1549255130222</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1549255130223</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="422496000" />
+    <option name="totallyTimeSpent" value="422576000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -2648,7 +2643,8 @@
     <MESSAGE value="2019-01-28 Relationships and Routes Protection" />
     <MESSAGE value="2019-02-03 Complete!" />
     <MESSAGE value="userController.js -&gt; userDetail problem" />
-    <option name="LAST_COMMIT_MESSAGE" value="userController.js -&gt; userDetail problem" />
+    <MESSAGE value="1차 완성&#10;React 공부 후 Version Up 계획중" />
+    <option name="LAST_COMMIT_MESSAGE" value="1차 완성&#10;React 공부 후 Version Up 계획중" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3054,8 +3050,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="612">
-            <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+          <first_editor relative-caret-position="756">
+            <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
           </first_editor>
           <second_editor />
         </state>

@@ -18,3 +18,5 @@ Cloning Youtube with VanillaJS and NodeJS
 - [x] First Step Complete!
 - [ ] 네이버, 카카오 로그인, 페이스북 로그인 삭제
 - [ ] 동영상플레이어 크기 조절
+- [ ] comment 작성자 표시
+- [ ] 작성자만 삭제 기능 추가
