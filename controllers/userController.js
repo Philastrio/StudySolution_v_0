@@ -1,149 +1,158 @@
-import passport from 'passport';
 import routes from '../routes';
-import User from '../models/User';
+import Video from '../models/Video';
+import Comment from '../models/Comment';
 
-export const getJoin = (req, res) => {
-  res.render('join', { pageTitle: 'Join' });
+export const home = async (req, res) => {
+  try {
+    const videos = await Video.find({}).sort({ _id: -1 });
+    res.render('home', { pageTitle: 'Home', videos });
+  } catch (error) {
+    console.log(error);
+    res.render('home', { pageTitle: 'Home', videos: [] });
+  }
 };
 
-export const postJoin = async (req, res, next) => {
+export const search = async (req, res) => {
   const {
-    body: { name, email, password, password2 }
+    query: { term: searchingBy }
   } = req;
 
-  if (password !== password2) {
-    res.status(400);
-    res.render('join', { pageTitle: 'Join' });
-  } else {
-    try {
-      const user = await User({
-        name,
-        email
-      });
-      await User.register(user, password);
-      next();
-    } catch (error) {
-      console.log(error);
-    }
-  }
-};
+  let videos = [];
 
-export const getlogin = (req, res) =>
-  res.render('login', { pageTitle: 'Login' });
-
-export const postlogin = passport.authenticate('local', {
-  failureRedirect: routes.login,
-  successRedirect: routes.home
-});
-
-// Github Login
-export const githubLogin = passport.authenticate('github');
-
-export const githubLoginCallback = async (
-  accessToken,
-  refreshToken,
-  profile,
-  cb
-) => {
-  const {
-    _json: { id, avatar_url: avatarUrl, name, email }
-  } = profile;
   try {
-    const user = await User.findOne({ email });
-    if (user) {
-      user.githubId = id;
-      user.save();
-      return cb(null, user);
-    }
-    const newUser = await User.create({
-      email,
-      name,
-      githubId: id,
-      avatarUrl
+    videos = await Video.find({
+      title: {
+        $regex: searchingBy,
+        $options: 'i'
+      }
     });
-    return cb(null, newUser);
+    console.log(videos);
   } catch (error) {
-    return cb(error);
+    console.log(error);
   }
+  res.render('search', { pageTitle: 'Search', searchingBy, videos });
 };
 
-export const postGithubLogin = (req, res) => {
-  res.redirect(routes.home);
+export const getUpload = (req, res) => {
+  res.render('upload', { pageTitle: 'Upload' });
 };
 
-// Kakao Login
-export const kakaoLogin = passport.authenticate('kakao');
+export const postUpload = async (req, res) => {
+  const {
+    body: { title, description },
+    file: { path }
+  } = req;
 
-export 
-
-// Normal Process
-
-export const logout = (req, res) => {
-  req.logout();
-  res.redirect(routes.home);
+  const newVideo = await Video.create({
+    fileUrl: path,
+    title,
+    description,
+    creator: req.user.id
+  });
+  req.user.videos.push(newVideo.id);
+  req.user.save();
+  res.redirect(routes.videoDetail(newVideo.id));
 };
 
-export const users = (req, res) => res.render('users', { pageTitle: 'Users' });
-
-export const userDetail = async (req, res) => {
+export const videoDetail = async (req, res) => {
   const {
     params: { id }
   } = req;
   try {
-    const user = await User.findById(id).populate('videos');
-    res.render('userDetail_normal', { pageTitle: '프로필', user });
+    const video = await Video.findById(id)
+      .populate('creator')
+      .populate('comments');
+
+    res.render('videoDetail', { pageTitle: video.title, video });
   } catch (error) {
     res.redirect(routes.home);
   }
 };
 
-export const getMe = async (req, res) => {
-  try {
-    const user = await User.findById(req.user.id).populate('videos');
-    res.render('userDetail_getMe', { pageTitle: '나의 프로필', user });
-  } catch (error) {
-    res.redirect(routes.home);
-  }
-};
-
-// getEditProfile
-export const getEditProfile = (req, res) =>
-  res.render('editProfile', { pageTitle: '프로필 수정' });
-
-export const postEditProfile = async (req, res) => {
+export const getEditVideo = async (req, res) => {
   const {
-    body: { name, email },
-    file
+    params: { id }
   } = req;
   try {
-    await User.findByIdAndUpdate(req.user.id, {
-      name,
-      email,
-      avatarUrl: file ? file.path : req.user.avatarUrl
-    });
-    res.redirect(routes.me);
-  } catch (error) {
-    res.redirect(routes.editProfile);
-  }
-};
-
-export const getChangePassword = (req, res) =>
-  res.render('changePassword', { pageTitle: 'Change Password' });
-
-export const postChangePassword = async (req, res) => {
-  const {
-    body: { oldPassword, newPassword, newPassword1 }
-  } = req;
-  try {
-    if (newPassword !== newPassword1) {
-      res.status(400);
-      res.redirect(`/users/${routes.changePassword}`);
-      return;
+    const video = await Video.findById(id);
+    if (String(video.creator) !== req.user.id) {
+      throw Error();
+    } else {
+      res.render('editVideo', { pageTitle: `Edit ${video.title}`, video });
     }
-    await req.user.changePassword(oldPassword, newPassword);
-    res.redirect(routes.me);
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
+
+export const postEditVideo = async (req, res) => {
+  const {
+    params: { id },
+    body: { title, description }
+  } = req;
+
+  try {
+    await Video.findOneAndUpdate({ _id: id }, { title, description });
+    res.redirect(routes.videoDetail(id));
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
+
+export const deleteVideo = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    if (String(video.creator) !== req.user.id) {
+      throw Error();
+    } else {
+      await Video.findOneAndDelete({ _id: id });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  res.redirect(routes.home);
+};
+
+// Register Video View
+export const postRegisterView = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    video.views += 1;
+    video.save();
+    res.status(200);
   } catch (error) {
     res.status(400);
-    res.render(`/users/${routes.changePassword}`);
+    res.end();
+  } finally {
+    res.end();
+  }
+};
+
+// Add Comment
+
+export const postAddComment = async (req, res) => {
+  const {
+    params: { id },
+    body: { comment },
+    user
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    const newComment = await Comment.create({
+      text: comment,
+      creator: user.id
+    });
+    video.comments.push(newComment.id);
+    video.save();
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
   }
 };
