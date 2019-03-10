@@ -19,7 +19,8 @@ Cloning Youtube with VanillaJS and NodeJS
 ## Schedule
 
 - [x] Responsive Web Design (2019-03-10) v.1.1
-- [ ] 동영상플레이어 크기 조절
+- [x] Adjusting Webplayer Size(Add PlayBtn in the center, When portrait landscape, fixed it )
 - [ ] 네이버, 카카오 로그인, 페이스북 로그인 삭제
 - [ ] comment 작성자 표시
-- [ ] 작성자만 삭제 기능 추가
+- [ ] Only writer Delete!
+- [ ] Admin Site
