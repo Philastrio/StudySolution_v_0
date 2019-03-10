@@ -1,6 +1,11 @@
 @import '../config/responsiveVar';
+@import '../config/fadeinAni';
 
 .home-videos {
+  animation: fade-in;
+  animation-fill-mode: both;
+  animation-duration: 0.5s;
+
   display: grid;
   grid-gap: 20px;
 

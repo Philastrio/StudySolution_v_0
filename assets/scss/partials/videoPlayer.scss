@@ -1,13 +1,33 @@
+@-webkit-keyframes fadeinout {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeinout {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 .videoPlayer {
   position: relative;
   &:hover {
     .videoPlayer__controls {
-      opacity: 1;
+      -webkit-animation: fadeinout 3s linear forwards;
+      animation: fadeinout 3s linear forwards;
     }
   }
   video {
     width: 100%;
-    height: 100%;
   }
   .videoPlayer__controls {
     opacity: 0;
