@@ -1,7 +1,7 @@
 mixin videoPlayer(video = {})
 	
 	.videoPlayer#jsVideoPlayer
-		video(src=`/${video.src}`)
+		video(src=video.src)
 		.videoPlayer__controlsSec
 			div#jsPlayButtonSec
 				i.fas.fa-play
