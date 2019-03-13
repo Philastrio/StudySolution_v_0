@@ -45,11 +45,12 @@
     "dev:server": "nodemon --exec babel-node init.js --ignore 'scss' --delay: 3000",
     "dev:assets": "cd src && webpack -w --mode=development",
     "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
-    "build:assets": "cd src && webpack -w --mode=production",
+    "build:assets": "cd src && webpack --mode=production",
     "copyAll": "cp -R src/static build && cp -R src/views build",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "prebuild": "rm -rf build",
-    "tunnel": "lt --port 4000"
+    "tunnel": "lt --port 4000",
+    "start": "node build/init.js"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
