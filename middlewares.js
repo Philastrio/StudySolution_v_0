@@ -13,7 +13,7 @@ const multerVideo = multer({
   storage: multerS3({
     s3,
     acl: 'public-read',
-    bucket: 'bluesuntube/video'
+    bucket: 'cytube/video'
   })
 });
 
@@ -21,7 +21,7 @@ const multerAvatar = multer({
   storage: multerS3({
     s3,
     acl: 'public-read',
-    bucket: 'bluesuntube/avatars'
+    bucket: 'cytube/avatars'
   })
 });
 
@@ -29,7 +29,7 @@ export const uploadVideo = multerVideo.single('videoFile');
 export const uploadAvatar = multerAvatar.single('avatar');
 
 export const localsMiddlewares = (req, res, next) => {
-  res.locals.siteName = 'BlueSunTube';
+  res.locals.siteName = '청양Tube';
   res.locals.routes = routes;
   res.locals.loggedUser = req.user || null;
   next();
