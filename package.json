@@ -42,7 +42,7 @@
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --ignore 'scss' --delay: 3000",
+    "dev:server": "nodemon --exec babel-node src/init.js --ignore 'scss' --delay: 3000",
     "dev:assets": "cd src && webpack -w --mode=development",
     "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
     "build:assets": "cd src && webpack --mode=production",
