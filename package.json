@@ -1,5 +1,5 @@
 {
-  "name": "studysolution_v_0",
+  "name": "cytube",
   "version": "1.0.0",
   "description": "Cloning wetube with VanillaJS and Node",
   "main": "app.js",
